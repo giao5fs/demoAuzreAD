@@ -31,3 +31,4 @@
 /Users/giaonguyenxuan/Desktop/DemoAzureAD/api1/obj/Debug/net8.0/api1.pdb
 /Users/giaonguyenxuan/Desktop/DemoAzureAD/api1/obj/Debug/net8.0/api1.genruntimeconfig.cache
 /Users/giaonguyenxuan/Desktop/DemoAzureAD/api1/obj/Debug/net8.0/ref/api1.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api1/obj/Debug/net8.0/api1.sourcelink.json
