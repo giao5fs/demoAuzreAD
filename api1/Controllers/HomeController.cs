@@ -14,7 +14,7 @@ public class HomeController : ControllerBase
     [HttpGet]
     public IActionResult Index()
     {
-        return Ok("Hello from ablo");
+        return Ok("Hello from AAA");
     }
 
 }
