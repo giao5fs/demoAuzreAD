@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'battlehungerApi1'
           slot-name: 'Production'
-          package: .
+          package: ./api1
           
