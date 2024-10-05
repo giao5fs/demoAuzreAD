@@ -6,15 +6,10 @@ namespace api1.Controllers;
 [Route("[controller]")]
 public class HomeController : ControllerBase
 {
-    public HomeController()
-    {
-
-    }
 
     [HttpGet]
     public IActionResult Index()
     {
         return Ok("Hello from BB");
     }
-
 }
