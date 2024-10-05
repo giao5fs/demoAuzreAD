@@ -1,3 +1,4 @@
+using api1.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api1.Controllers;
@@ -6,10 +7,17 @@ namespace api1.Controllers;
 [Route("[controller]")]
 public class HomeController : ControllerBase
 {
+    private readonly ApiUtility _apiUtility;
+
+    public HomeController(ApiUtility apiUtility)
+    {
+        _apiUtility = apiUtility;
+    }
 
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return Ok("Hello from BB");
+        var response = await _apiUtility.GetData<object>();
+        return Ok(response);
     }
 }

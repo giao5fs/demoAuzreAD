@@ -31,3 +31,12 @@
 /Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/obj/Debug/net8.0/api2.pdb
 /Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/obj/Debug/net8.0/api2.genruntimeconfig.cache
 /Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/obj/Debug/net8.0/ref/api2.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/obj/Debug/net8.0/api2.sourcelink.json
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/giaonguyenxuan/Desktop/DemoAzureAD/api2/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
