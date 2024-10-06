@@ -16,10 +16,6 @@ public class ApiUtility
 
         var battlehungerApi2Url = _configuration.GetValue<string>("ApiConfig:BattlehungerApi2");
 
-        _logger.LogInformation(Environment.NewLine);
-        _logger.LogError($"Call______: {battlehungerApi2Url}");
-        _logger.LogInformation(Environment.NewLine);
-
         _httpClient.BaseAddress = new Uri(battlehungerApi2Url!);
     }
 
