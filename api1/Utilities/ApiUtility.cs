@@ -1,5 +1,3 @@
-using System.Net;
-using System.Text.Json;
 using Azure.Core;
 using Azure.Identity;
 
@@ -15,31 +13,24 @@ public class ApiUtility
         _httpClient = httpFactory.CreateClient();
         _configuration = configuration;
 
-        _httpClient.BaseAddress = new Uri(_configuration["ApiConfig:BattlehungerApi2"] ?? "");
+        var battlehungerApi2Url = _configuration.GetValue<string>("ApiConfig:BattlehungerApi2");
+
+        _httpClient.BaseAddress = new Uri(battlehungerApi2Url!);
         _logger = logger;
     }
 
     public async Task<T?> GetData<T>()
     {
-        _logger.LogInformation("Start GetData..........");
-        var api2ClientId = "1f0f922f-ed3e-486b-961c-cb0ad598fc0e";
-        _logger.LogError(api2ClientId);
+        var api2ClientId = _configuration.GetValue<string>("AzureAD:Api2ClientId");
         var credential = new DefaultAzureCredential();
-
         var tokenContext = new TokenRequestContext(scopes: [$"{api2ClientId}/.default"]);
-
         var accessToken = await credential.GetTokenAsync(tokenContext);
-
-        _logger.LogError(accessToken.Token);
-        _logger.LogInformation("Start calling API2.....");
 
         _httpClient.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken.Token);
 
         var response = await _httpClient.GetAsync("weatherforecast");
-
         response.EnsureSuccessStatusCode();
-
         return await response.Content.ReadFromJsonAsync<T>();
     }
 }
