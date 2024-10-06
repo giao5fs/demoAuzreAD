@@ -10,13 +10,17 @@ public class ApiUtility
     private readonly ILogger<ApiUtility> _logger;
     public ApiUtility(IHttpClientFactory httpFactory, IConfiguration configuration, ILogger<ApiUtility> logger)
     {
+        _logger = logger;
         _httpClient = httpFactory.CreateClient();
         _configuration = configuration;
 
         var battlehungerApi2Url = _configuration.GetValue<string>("ApiConfig:BattlehungerApi2");
 
+        _logger.LogInformation(Environment.NewLine);
+        _logger.LogError($"Call______: {battlehungerApi2Url}");
+        _logger.LogInformation(Environment.NewLine);
+
         _httpClient.BaseAddress = new Uri(battlehungerApi2Url!);
-        _logger = logger;
     }
 
     public async Task<T?> GetData<T>()
