@@ -8,12 +8,11 @@ namespace api2.Controllers;
 [Authorize]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "One", "Two", "Three", "Four", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
     private readonly ILogger<WeatherForecastController> _logger;
+    private static readonly string[] Summaries = new[]
+{
+        "1", "11", "111", "1111", "11111"
+    };
 
     public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
@@ -31,4 +30,5 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
 }
