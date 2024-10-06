@@ -1,4 +1,5 @@
 using System.Text;
+using api2;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -14,7 +15,7 @@ builder.Services
         options.Authority = builder.Configuration["AzureAd:MIAuthority"];
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidAudiences = [builder.Configuration["AzureAd:Api1Audience"]],
+            ValidAudiences = [builder.Configuration["AzureAd:Audience"]],
             ValidateIssuer = false,
             ValidateAudience = true,
             ValidateIssuerSigningKey = false,
@@ -34,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<JwtBearerMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
