@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <h1>Welcome to the Microsoft Authentication Library For Vue Quickstart</h1>
+    <h1>Welcome to summoner rift</h1>
     <router-view />
   </div>
 </template>
