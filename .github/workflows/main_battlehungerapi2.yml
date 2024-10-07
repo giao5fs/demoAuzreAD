@@ -5,9 +5,8 @@ name: Build and deploy ASP.Net Core app to Azure Web App - battlehungerApi2
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    paths:
+      - api2/**
 
 jobs:
   build:
