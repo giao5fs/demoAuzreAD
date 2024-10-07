@@ -6,8 +6,7 @@ export const msalConfig = {
     clientId: "70c87435-8ae8-4808-bc8a-b031649b4d68",
     authority:
       "https://login.microsoftonline.com/3b94e066-71eb-447b-b43a-9a739d4f2544",
-    redirectUri: "http://localhost:8080", // Must be registered as a SPA redirectURI on your app registration
-    postLogoutRedirectUri: "/", // Must be registered as a SPA redirectURI on your app registration
+    redirectUri: "https://jolly-desert-02bab8710.5.azurestaticapps.net", // Must be registered as a SPA redirectURI on your app registration
   },
   cache: {
     cacheLocation: "localStorage",
