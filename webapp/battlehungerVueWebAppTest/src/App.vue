@@ -17,17 +17,3 @@ import NavBar from "./components/NavBar.vue";
   color: #2c3e50;
 }
 </style>
-
-<!-- {
-  // "battlehungerAPI1": {
-  //     "SecretValue": "UQZ8Q~Lt3EjIJ_noO0.uuIitJg6nWkCPmm330bxr",
-  //     "SecretID": "21fa6e75-35d4-485e-b90a-11592f32161c",
-  //     "ClientID": "d65c15cb-cf7a-49b5-96b2-3fac2e558ac4",
-  //     "TenantID": "3b94e066-71eb-447b-b43a-9a739d4f2544",
-  //     "Endpoint": "https://battlehungerapi1-bff4hngcgvfwasd8.centralus-01.azurewebsites.net"
-  // },
-  // "battlehungerVueWebApp": {
-  //     "ClientID": "70c87435-8ae8-4808-bc8a-b031649b4d68",
-  //     "TenantID": "3b94e066-71eb-447b-b43a-9a739d4f2544"
-  // }
-} -->
