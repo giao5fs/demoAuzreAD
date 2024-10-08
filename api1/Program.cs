@@ -18,13 +18,14 @@ builder.Services
     .AddJwtBearer(options =>
     {
         options.Authority = builder.Configuration.GetValue<string>("AzureAd:Authority");
-        options.Audience = builder.Configuration.GetValue<string>("AzureAd:Api1ClientId");
+        options.Audience = builder.Configuration.GetValue<string>("AzureAd:Audience");
     });
 
 builder.Services.AddCors(options =>
     options.AddPolicy("AllowVueApp", builder =>
     {
-        builder.WithOrigins("http://localhost:8080", "https://ambitious-river-015f84110.5.azurestaticapps.net/")
+        builder.WithOrigins("http://localhost:8080",
+        "https://jolly-desert-02bab8710.5.azurestaticapps.net")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
     })
@@ -47,7 +48,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowVueApp");
 
+app.UseMiddleware<JwtMiddleware>();
+
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
