@@ -26,6 +26,8 @@ public class ApiUtility
         var tokenContext = new TokenRequestContext(scopes: [$"{api2ClientId}/.default"]);
         var accessToken = await credential.GetTokenAsync(tokenContext);
 
+        _logger.LogInformation(accessToken.Token);
+
         _httpClient.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken.Token);
 
