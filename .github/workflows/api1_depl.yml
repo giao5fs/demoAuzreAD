@@ -6,7 +6,7 @@ name: Build and deploy battlehungerApi1
 on:
   push:
     paths:
-      - api1/**
+      - api100/**
 
 jobs:
   build:
