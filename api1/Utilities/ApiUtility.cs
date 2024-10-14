@@ -14,7 +14,7 @@ public class ApiUtility
         _httpClient = httpFactory.CreateClient();
         _configuration = configuration;
 
-        var battlehungerApi2Url = _configuration.GetValue<string>("ApiConfig:BattlehungerApi2");
+        var battlehungerApi2Url = _configuration.GetValue<string>("ApiConfig:movelorenciaApi2");
 
         _httpClient.BaseAddress = new Uri(battlehungerApi2Url!);
     }
