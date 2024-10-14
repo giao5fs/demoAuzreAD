@@ -15,7 +15,7 @@ import { useMsalAuthentication } from "@/composition-api/useMsalAuthentication";
 import { InteractionType } from "@azure/msal-browser";
 import { reactive, watch } from "vue";
 import { loginRequest } from "@/authConfig";
-import { callMsGraph } from "@/utils/MsGraphApiCall";
+import { callMsGraph } from "@/utils/ApiCall";
 import UserInfo from "@/utils/UserInfo";
 
 const { result, acquireToken } = useMsalAuthentication(

@@ -1,6 +1,6 @@
-import { graphConfig } from "@/authConfig";
+import { apiConfig } from "@/authConfig";
 
-export async function callMsGraph(accessToken: string) {
+export async function callApi(accessToken: string) {
   const headers = new Headers();
   const bearer = `Bearer ${accessToken}`;
 
@@ -11,7 +11,7 @@ export async function callMsGraph(accessToken: string) {
     headers: headers,
   };
 
-  return fetch(graphConfig.graphMeEndpoint, options)
+  return fetch(apiConfig.resourceUri, options)
     .then((response) => response.json())
     .catch((error) => {
       console.log(error);

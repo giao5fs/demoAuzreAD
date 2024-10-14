@@ -1,12 +1,6 @@
 <template>
   <div v-if="state.resolved">
-    <p>Name: {{ state.data.displayName }}</p>
-    <p>Title: {{ state.data.jobTitle }}</p>
-    <p>Mail: {{ state.data.mail }}</p>
-    <p>
-      Phone: {{ state.data.businessPhones ? state.data.businessPhones[0] : "" }}
-    </p>
-    <p>Location: {{ state.data.officeLocation }}</p>
+    <pre>{{ state.data }}</pre>
   </div>
 </template>
 
@@ -18,14 +12,13 @@ import {
 } from "@azure/msal-browser";
 import { reactive, onMounted, watch } from "vue";
 import { loginRequest } from "@/authConfig";
-import { callMsGraph } from "@/utils/MsGraphApiCall";
-import UserInfo from "@/utils/UserInfo";
+import { callApi } from "@/utils/ApiCall";
 
 const { instance, inProgress } = useMsal();
 
 const state = reactive({
   resolved: false,
-  data: {} as UserInfo,
+  data: {},
 });
 
 async function getGraphData() {
@@ -40,8 +33,8 @@ async function getGraphData() {
       throw e;
     });
   if (inProgress.value === InteractionStatus.None) {
-    const graphData = await callMsGraph(response.accessToken);
-    state.data = graphData;
+    const resposeData = await callApi(response.accessToken);
+    state.data = resposeData;
     state.resolved = true;
     stopWatcher();
   }

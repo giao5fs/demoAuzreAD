@@ -3,10 +3,10 @@ import { LogLevel, PublicClientApplication } from "@azure/msal-browser";
 // Config object to be passed to Msal on creation
 export const msalConfig = {
   auth: {
-    clientId: "70c87435-8ae8-4808-bc8a-b031649b4d68",
+    clientId: "99a7629b-929c-45fc-853d-e177736ea35f",
     authority:
-      "https://login.microsoftonline.com/3b94e066-71eb-447b-b43a-9a739d4f2544",
-    redirectUri: "https://jolly-desert-02bab8710.5.azurestaticapps.net", // Must be registered as a SPA redirectURI on your app registration
+      "https://login.microsoftonline.com/d9f9f390-21e0-4122-8bc7-741f92e7211d",
+    redirectUri: "http://localhost:8080", // Must be registered as a SPA redirectURI on your app registration
   },
   cache: {
     cacheLocation: "localStorage",
@@ -43,14 +43,24 @@ export const msalConfig = {
   },
 };
 
+export const apiConfig = {
+  resourceUri: "https://movelorencia-api1.azurewebsites.net/home",
+  resourceScopes: ["02013b40-85bb-4145-9abe-6d9942ee97a0/.default"],
+};
+
 export const msalInstance = new PublicClientApplication(msalConfig);
 
 // Add here scopes for id token to be used at MS Identity Platform endpoints.
 export const loginRequest = {
-  scopes: ["User.Read"],
+  scopes: ["openid", "profile", "offline_access", ...apiConfig.resourceScopes],
 };
 
-// Add here the endpoints for MS Graph API services you would like to use.
-export const graphConfig = {
-  graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
+// Add here scopes for access token to be used at the API endpoints.
+export const tokenRequest = {
+  scopes: [...apiConfig.resourceScopes],
+};
+
+// Add here scopes for silent token request
+export const silentRequest = {
+  scopes: ["openid", "profile", ...apiConfig.resourceScopes],
 };
