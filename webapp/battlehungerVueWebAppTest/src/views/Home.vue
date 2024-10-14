@@ -4,7 +4,7 @@
       >Please sign-in to see your profile information.</span
     >
     <el-button v-else type="primary" v-on:click="goToProfile"
-      >Request Profile Information</el-button
+      >Request Profile Info rmation</el-button
     >
   </div>
 </template>
