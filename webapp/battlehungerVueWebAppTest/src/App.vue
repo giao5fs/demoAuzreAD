@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <h1>Welcome to summonerr rift</h1>
+    <h1>Welcome to summonerrsummonerrsummonerrsummonerr rift</h1>
     <router-view />
   </div>
 </template>
