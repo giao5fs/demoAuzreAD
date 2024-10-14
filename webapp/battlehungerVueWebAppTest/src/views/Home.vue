@@ -30,20 +30,9 @@ const isAuthenticated = useIsAuthenticated();
 
 const { instance, inProgress } = useMsal();
 
-const state = reactive({
-  resolved: false,
-  token: "",
-});
-
 const dataObj = ref();
 
 const router = useRouter();
-
-const stopWatcher = watch(inProgress, () => {
-  if (!state.resolved) {
-    getTokenData();
-  }
-});
 
 const getTokenData = async () => {
   const response = await instance
@@ -57,25 +46,22 @@ const getTokenData = async () => {
       throw e;
     });
 
-  if (inProgress.value === InteractionStatus.None) {
-    state.token = response.accessToken;
-    state.resolved = true;
-    stopWatcher();
-  }
-  console.log(state.token);
+  return response.accessToken;
 };
 
 const callApi1 = async () => {
-  console.log("callApi1: ", state.token);
+  let token = await getTokenData();
+  console.log("callApi1: ", token);
   if (inProgress.value === InteractionStatus.None) {
-    dataObj.value = await getDataApi1(state.token);
+    dataObj.value = await getDataApi1(token);
   }
 };
 
 const callApi2 = async () => {
-  console.log("callApi2: ", state.token);
+  let token = await getTokenData();
+  console.log("callApi2: ", token);
   if (inProgress.value === InteractionStatus.None) {
-    dataObj.value = await getDataApi2ViaManagedIdentity(state.token);
+    dataObj.value = await getDataApi2ViaManagedIdentity(token);
   }
 };
 
