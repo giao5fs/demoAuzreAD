@@ -22,8 +22,7 @@ builder.Services
 builder.Services.AddCors(options =>
     options.AddPolicy("AllowVueApp", builder =>
     {
-        builder.WithOrigins("http://localhost:8080",
-        "https://icy-rock-048660400.5.azurestaticapps.net")
+        builder.WithOrigins("https://icy-rock-048660400.5.azurestaticapps.net")
                 .AllowAnyMethod()
                 .AllowAnyHeader();
     })
