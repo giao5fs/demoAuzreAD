@@ -58,5 +58,5 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "movelorencia-api1"
-          package: "./api1"
+          app-name: "movelorencia-apiOne"
+          package: "./apiOne"

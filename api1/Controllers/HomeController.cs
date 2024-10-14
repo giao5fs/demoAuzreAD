@@ -18,6 +18,8 @@ public class HomeController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var response = await _apiUtility.GetData<object>();
+
+
         return Ok(response);
     }
 }
