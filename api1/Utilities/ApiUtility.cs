@@ -24,12 +24,21 @@ public class ApiUtility
         var api2ClientId = _configuration.GetValue<string>("AzureAD:Api2ClientId");
         var credential = new DefaultAzureCredential();
         var tokenContext = new TokenRequestContext(scopes: [$"{api2ClientId}/.default"]);
-        var accessToken = await credential.GetTokenAsync(tokenContext);
+        string token = string.Empty;
+        try
+        {
+            var accessToken = await credential.GetTokenAsync(tokenContext);
+            token = accessToken.Token;
+        }
+        catch (System.Exception ex)
+        {
+            _logger.LogError(ex.Message);
+        }
 
-        _logger.LogInformation(accessToken.Token);
+        _logger.LogInformation(token);
 
         _httpClient.DefaultRequestHeaders.Authorization =
-            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken.Token);
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
         var response = await _httpClient.GetAsync("weatherforecast");
         response.EnsureSuccessStatusCode();
