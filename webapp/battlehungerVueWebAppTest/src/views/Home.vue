@@ -6,8 +6,8 @@
     <div v-else>
       <div class="button-group">
         <button @click="goToProfile">Goto Profile</button>
-        <button @click="callApi1">Call API1</button>
-        <button @click="callApi2">Call API2</button>
+        <button :disabled="processing" @click="callApi1">Call API1</button>
+        <button :disabled="processing" @click="callApi2">Call API2</button>
       </div>
       <div>
         <pre>{{ dataObj }}</pre>
@@ -29,6 +29,8 @@ import { onMounted, reactive, ref, watch } from "vue";
 import { loginRequest } from "@/authConfig";
 
 const isAuthenticated = useIsAuthenticated();
+
+const processing = ref(false);
 
 const { instance, inProgress } = useMsal();
 
@@ -52,18 +54,22 @@ const getTokenData = async () => {
 };
 
 const callApi1 = async () => {
+  processing.value = true;
   let token = await getTokenData();
   console.log("callApi1: ", token);
   if (inProgress.value === InteractionStatus.None) {
     dataObj.value = await getDataApi1(token);
+    processing.value = false;
   }
 };
 
 const callApi2 = async () => {
+  processing.value = true;
   let token = await getTokenData();
   console.log("callApi2: ", token);
   if (inProgress.value === InteractionStatus.None) {
     dataObj.value = await getDataApi2ViaManagedIdentity(token);
+    processing.value = false;
   }
 };
 
