@@ -47,6 +47,8 @@ public class ApiUtility
 
         var res = await response.Content.ReadFromJsonAsync<T>();
 
+        _logger.LogInformation("Result____________:");
+
         _logger.LogInformation(JsonConvert.SerializeObject(res));
 
         return res;
