@@ -36,6 +36,9 @@ builder.Services.AddTransient<ApiUtility>();
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseCors("AllowVueApp");
 
 app.UseHttpsRedirection();
@@ -46,9 +49,6 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.MapControllers();
 
 app.Run();
