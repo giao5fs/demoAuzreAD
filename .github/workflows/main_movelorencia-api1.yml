@@ -61,4 +61,4 @@ jobs:
         with:
           app-name: "movelorencia-api1"
           slot-name: "Production"
-          package: ${{ github.workspace }}/api1
+          package: .
