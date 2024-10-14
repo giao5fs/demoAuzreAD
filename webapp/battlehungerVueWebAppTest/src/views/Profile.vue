@@ -12,7 +12,7 @@ import {
 } from "@azure/msal-browser";
 import { reactive, onMounted, watch } from "vue";
 import { loginRequest } from "@/authConfig";
-import { callApi } from "@/utils/ApiCall";
+import { getDataApi1 } from "@/utils/ApiCall";
 
 const { instance, inProgress } = useMsal();
 
@@ -33,7 +33,7 @@ async function getAPIData() {
       throw e;
     });
   if (inProgress.value === InteractionStatus.None) {
-    const resposeData = await callApi(response.accessToken);
+    const resposeData = await getDataApi1(response.accessToken);
     state.data = resposeData;
     state.resolved = true;
     stopWatcher();

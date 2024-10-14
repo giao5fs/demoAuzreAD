@@ -44,7 +44,7 @@ export const msalConfig = {
 };
 
 export const apiConfig = {
-  resourceUri: "https://movelorencia-api1.azurewebsites.net/WeatherForecast",
+  resourceUri: "https://movelorencia-api1.azurewebsites.net",
   resourceScopes: ["02013b40-85bb-4145-9abe-6d9942ee97a0/.default"],
 };
 

@@ -1,32 +1,11 @@
 <template>
-  <el-menu
-    class="el-menu-demo"
-    mode="horizontal"
-    background-color="#545c64"
-    text-color="#fff"
-  >
-    <el-menu-item index="home">
-      <i class="el-icon-house"></i>
-      <router-link to="/">Home</router-link>
-    </el-menu-item>
-    <el-sub-menu index="pages">
-      <template #title>Example Pages</template>
-      <el-menu-item index="profile"
-        ><router-link to="/profile"
-          >Profile protected by Guard</router-link
-        ></el-menu-item
-      >
-      <el-menu-item index="profilenoguard"
-        ><router-link to="/profilenoguard"
-          >Profile protected by useMsalAuthentication</router-link
-        ></el-menu-item
-      >
-    </el-sub-menu>
-    <el-menu-item index="buttonGroup" id="authButton">
-      <SignOutButton v-if="isAuthenticated" />
-      <SignInButton v-else />
-    </el-menu-item>
-  </el-menu>
+  <nav class="nav-container">
+    <router-link to="/">Home</router-link>
+    <router-link to="/profile">Profile protected by Guard</router-link>
+    <router-link to="/profilenoguard">Profile protected no Guard</router-link>
+    <SignOutButton v-if="isAuthenticated" />
+    <SignInButton v-else />
+  </nav>
 </template>
 
 <script setup lang="ts">
@@ -44,5 +23,13 @@ a {
 }
 #authButton {
   margin-left: auto;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 </style>

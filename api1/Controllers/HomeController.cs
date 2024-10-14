@@ -1,10 +1,12 @@
 using api1.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class HomeController : ControllerBase
 {
     private readonly ApiUtility _apiUtility;

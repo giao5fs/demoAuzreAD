@@ -1,17 +1,7 @@
 <template>
-  <el-dropdown>
-    <WelcomeName />
-    <template #dropdown>
-      <el-dropdown-menu>
-        <el-dropdown-item v-on:click="logoutPopup"
-          >Logout Popup</el-dropdown-item
-        >
-        <el-dropdown-item v-on:click="logoutRedirect"
-          >Logout Redirect</el-dropdown-item
-        >
-      </el-dropdown-menu>
-    </template>
-  </el-dropdown>
+  <WelcomeName />
+  <button @click="logoutPopup">Logout Popup</button>
+  <button @click="logoutRedirect">Logout Redirect</button>
 </template>
 
 <script setup lang="ts">

@@ -11,7 +11,7 @@ import { useMsalAuthentication } from "@/composition-api/useMsalAuthentication";
 import { InteractionType } from "@azure/msal-browser";
 import { reactive, watch } from "vue";
 import { loginRequest } from "@/authConfig";
-import { callApi } from "@/utils/ApiCall";
+import { getDataApi1 } from "@/utils/ApiCall";
 
 const { result, acquireToken } = useMsalAuthentication(
   InteractionType.Redirect,
@@ -25,7 +25,7 @@ const state = reactive({
 
 async function getAPIData() {
   if (result.value) {
-    const graphData = await callApi(result.value.accessToken).catch(() =>
+    const graphData = await getDataApi1(result.value.accessToken).catch(() =>
       acquireToken()
     );
     state.data = graphData;
