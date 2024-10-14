@@ -21,7 +21,7 @@ const state = reactive({
   data: {},
 });
 
-async function getGraphData() {
+async function getAPIData() {
   const response = await instance
     .acquireTokenSilent({
       ...loginRequest,
@@ -41,12 +41,12 @@ async function getGraphData() {
 }
 
 onMounted(() => {
-  getGraphData();
+  getAPIData();
 });
 
 const stopWatcher = watch(inProgress, () => {
   if (!state.resolved) {
-    getGraphData();
+    getAPIData();
   }
 });
 </script>
