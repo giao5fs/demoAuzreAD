@@ -27,7 +27,7 @@ a {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   gap: 10px;
   flex-direction: row;
   flex-wrap: nowrap;

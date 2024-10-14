@@ -87,7 +87,7 @@ function goToProfile() {
 <style scoped>
 .button-group {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 10px;
