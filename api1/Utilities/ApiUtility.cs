@@ -27,6 +27,7 @@ public class ApiUtility
         var credential = new DefaultAzureCredential();
         var tokenContext = new TokenRequestContext(scopes: [$"{api2ClientId}/.default"]);
         string token = string.Empty;
+
         try
         {
             var accessToken = await credential.GetTokenAsync(tokenContext);
@@ -46,11 +47,6 @@ public class ApiUtility
         response.EnsureSuccessStatusCode();
 
         var res = await response.Content.ReadFromJsonAsync<T>();
-
-        _logger.LogInformation("Result____________:");
-
-        _logger.LogInformation(JsonConvert.SerializeObject(res));
-
         return res;
     }
 }

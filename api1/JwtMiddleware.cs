@@ -1,20 +1,19 @@
 public class JwtMiddleware
 {
     private readonly RequestDelegate next;
-    public JwtMiddleware(RequestDelegate next)
+    private readonly ILogger<JwtMiddleware> _logger;
+    public JwtMiddleware(RequestDelegate next, ILogger<JwtMiddleware> logger)
     {
         this.next = next;
+        _logger = logger;
     }
 
-    public Task InvokeAsync(HttpContext context)
+    public async Task InvokeAsync(HttpContext context)
     {
-        System.Console.WriteLine(Environment.NewLine);
-        System.Console.WriteLine(DateTime.UtcNow.ToString());
-        System.Console.WriteLine(context.Request.Headers["Authorization"]);
-        System.Console.WriteLine(Environment.NewLine);
-
-        next(context);
-
-        return Task.CompletedTask;
+        _logger.LogInformation(Environment.NewLine);
+        _logger.LogInformation(DateTime.UtcNow.ToString());
+        _logger.LogInformation(context.Request.Headers["Authorization"]);
+        _logger.LogInformation(Environment.NewLine);
+        await next(context);
     }
 }
