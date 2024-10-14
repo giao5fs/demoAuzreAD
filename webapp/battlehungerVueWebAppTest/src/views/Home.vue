@@ -3,13 +3,15 @@
     <span v-if="!isAuthenticated"
       >Please sign-in to see your profile information.</span
     >
-    <div v-else class="button-group">
-      <button @click="goToProfile">Goto Profile</button>
-      <button @click="callApi1">Call API1</button>
-      <button @click="callApi2">Call API2</button>
-    </div>
     <div v-else>
-      <pre>{{ dataObj }}</pre>
+      <div class="button-group">
+        <button @click="goToProfile">Goto Profile</button>
+        <button @click="callApi1">Call API1</button>
+        <button @click="callApi2">Call API2</button>
+      </div>
+      <div>
+        <pre>{{ dataObj }}</pre>
+      </div>
     </div>
   </div>
 </template>
