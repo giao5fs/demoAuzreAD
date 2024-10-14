@@ -1,5 +1,7 @@
+using System.Text.Json.Serialization;
 using Azure.Core;
 using Azure.Identity;
+using Newtonsoft.Json;
 
 namespace api1.Utilities;
 
@@ -42,6 +44,11 @@ public class ApiUtility
 
         var response = await _httpClient.GetAsync("weatherforecast");
         response.EnsureSuccessStatusCode();
-        return await response.Content.ReadFromJsonAsync<T>();
+
+        var res = await response.Content.ReadFromJsonAsync<T>();
+
+        _logger.LogInformation(JsonConvert.SerializeObject(res));
+
+        return res;
     }
 }
