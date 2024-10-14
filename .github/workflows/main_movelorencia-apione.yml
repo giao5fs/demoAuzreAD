@@ -59,4 +59,4 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: "movelorencia-apiOne"
-          package: "./apiOne"
+          package: .
