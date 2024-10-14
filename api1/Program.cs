@@ -24,8 +24,8 @@ builder.Services.AddCors(options =>
     {
         builder.WithOrigins("http://localhost:8080",
         "https://icy-rock-048660400.5.azurestaticapps.net")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
+                .AllowAnyMethod()
+                .AllowAnyHeader();
     })
 );
 
