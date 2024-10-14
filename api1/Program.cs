@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowVueApp", builder =>
     {
         builder.WithOrigins("http://localhost:8080",
-        "https://jolly-desert-02bab8710.5.azurestaticapps.net")
+        "https://mango-island-028087c10.5.azurestaticapps.net")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
     })
