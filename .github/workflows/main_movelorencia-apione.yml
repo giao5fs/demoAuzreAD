@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - movelorencia-apiOne
+name: Build and deploy - movelorencia-api1
 
 on:
   push:
@@ -58,6 +58,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "movelorencia-apiOne"
-          slot-name: "Production"
-          package: .
+          app-name: "movelorencia-api1"
+          slot-name: "api1-slot"
+          package: "./api1"
