@@ -6,7 +6,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - movelorencia-api2
 on:
   push:
     paths:
-      - api1/**
+      - api2/**
   workflow_dispatch:
 
 jobs:
