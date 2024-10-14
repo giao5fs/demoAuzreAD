@@ -59,5 +59,4 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: "movelorencia-api1"
-          slot-name: "api1-slot"
           package: "./api1"
