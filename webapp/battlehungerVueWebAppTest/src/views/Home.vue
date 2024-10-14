@@ -7,11 +7,9 @@
       <button @click="goToProfile">Goto Profile</button>
       <button @click="callApi1">Call API1</button>
       <button @click="callApi2">Call API2</button>
+      <pre>{{ dataObj }}</pre>
     </div>
   </div>
-  <pre>
-    {{ dataObj }}
-  </pre>
 </template>
 
 <script setup lang="ts">
