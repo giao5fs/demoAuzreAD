@@ -1,8 +1,12 @@
 <template>
   <nav class="nav-container">
-    <router-link to="/">Home</router-link>
-    <router-link to="/profile">Profile protected by Guard</router-link>
-    <router-link to="/profilenoguard">Profile protected no Guard</router-link>
+    <router-link to="/"><button>Home</button></router-link>
+    <router-link to="/profile"
+      ><button>Profile protected by Guard</button></router-link
+    >
+    <router-link to="/profilenoguard"
+      ><button>Profile protected no Guard</button></router-link
+    >
     <SignOutButton v-if="isAuthenticated" />
     <SignInButton v-else />
   </nav>
