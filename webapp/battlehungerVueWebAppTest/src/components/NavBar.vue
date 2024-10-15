@@ -1,4 +1,5 @@
 <template>
+  <h3>Welcome to Summoner Rift!!!</h3>
   <nav class="nav-container">
     <router-link to="/"><button>Home</button></router-link>
     <router-link to="/profile"
@@ -29,11 +30,24 @@ a {
   margin-left: auto;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  position: absolute;
+  top: -15px;
+  line-height: 34px;
+  color: blue;
+}
+
 .nav-container {
   display: flex;
   justify-content: right;
   gap: 10px;
   flex-direction: row;
   flex-wrap: nowrap;
+  margin-bottom: 10px;
 }
 </style>

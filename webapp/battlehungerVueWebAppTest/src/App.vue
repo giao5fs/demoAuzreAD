@@ -1,7 +1,6 @@
 <template>
   <div>
     <NavBar />
-    <h1>Welcome to summoner rift</h1>
     <router-view />
   </div>
 </template>

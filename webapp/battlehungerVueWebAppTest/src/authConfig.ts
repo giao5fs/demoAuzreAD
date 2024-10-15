@@ -6,7 +6,9 @@ export const msalConfig = {
     clientId: "99a7629b-929c-45fc-853d-e177736ea35f",
     authority:
       "https://login.microsoftonline.com/d9f9f390-21e0-4122-8bc7-741f92e7211d",
-    redirectUri: "https://icy-rock-048660400.5.azurestaticapps.net", // Must be registered as a SPA redirectURI on your app registration
+    redirectUri: import.meta.env.DEV
+      ? "http://localhost:8080"
+      : "https://icy-rock-048660400.5.azurestaticapps.net", // Must be registered as a SPA redirectURI on your app registration
   },
   cache: {
     cacheLocation: "localStorage",
