@@ -6,11 +6,15 @@
     <div v-else>
       <div class="button-group">
         <button @click="goToProfile">Goto Profile</button>
-        <button :disabled="processing" @click="callApi1">Call API1</button>
-        <button :disabled="processing" @click="callApi2">Call API2</button>
-      </div>
-      <div>
-        <pre>{{ dataObj }}</pre>
+        <LoadingButton @click="callApi1" :loading="processing1"
+          >Call API1</LoadingButton
+        >
+        <LoadingButton @click="callApi2" :loading="processing2"
+          >Call API2</LoadingButton
+        >
+        <div> 
+          <pre>{{ dataObj }}</pre>
+        </div>
       </div>
     </div>
   </div>
@@ -27,10 +31,12 @@ import {
 } from "@azure/msal-browser";
 import { onMounted, reactive, ref, watch } from "vue";
 import { loginRequest } from "@/authConfig";
+import LoadingButton from "../components/LoadingButton.vue";
 
 const isAuthenticated = useIsAuthenticated();
 
-const processing = ref(false);
+const processing1 = ref(false);
+const processing2 = ref(false);
 
 const { instance, inProgress } = useMsal();
 
@@ -54,22 +60,22 @@ const getTokenData = async () => {
 };
 
 const callApi1 = async () => {
-  processing.value = true;
+  processing1.value = true;
   let token = await getTokenData();
   console.log("callApi1: ", token);
   if (inProgress.value === InteractionStatus.None) {
     dataObj.value = await getDataApi1(token);
-    processing.value = false;
+    processing1.value = false;
   }
 };
 
 const callApi2 = async () => {
-  processing.value = true;
+  processing2.value = true;
   let token = await getTokenData();
   console.log("callApi2: ", token);
   if (inProgress.value === InteractionStatus.None) {
     dataObj.value = await getDataApi2ViaManagedIdentity(token);
-    processing.value = false;
+    processing2.value = false;
   }
 };
 

@@ -1,7 +1,6 @@
 <template>
   <div class="welcome-name">
     <span v-if="!!name">Welcome, {{ name }}</span>
-    <i class="el-icon-user"></i>
   </div>
 </template>
 
@@ -24,6 +23,7 @@ const name = computed(() => {
 
 <style>
 .welcome-name {
-  color: #fff;
+  color: royalblue;
+  font-weight: bold;
 }
 </style>

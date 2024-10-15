@@ -14,6 +14,7 @@
     "@azure/msal-browser": "^3.25.0",
     "element-plus": "^2.8.4",
     "vue": "^3.4.29",
+    "vue-loading-button": "^0.2.0",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
