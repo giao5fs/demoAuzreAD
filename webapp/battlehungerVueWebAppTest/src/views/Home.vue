@@ -12,9 +12,9 @@
         <LoadingButton @click="callApi2" :loading="processing2"
           >Call API2</LoadingButton
         >
-        <div> 
-          <pre>{{ dataObj }}</pre>
-        </div>
+      </div>
+      <div>
+        <pre>{{ dataObj }}</pre>
       </div>
     </div>
   </div>
