@@ -1,8 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router/router";
-import ElementPlus from "element-plus";
-import "element-plus/dist/index.css";
 import { msalPlugin } from "./plugins/msalPlugin";
 import { msalInstance } from "./authConfig";
 import { AuthenticationResult, EventType } from "@azure/msal-browser";
@@ -27,7 +25,6 @@ msalInstance.addEventCallback((event) => {
 
 const app = createApp(App);
 
-app.use(ElementPlus);
 app.use(router);
 app.use(msalPlugin, msalInstance);
 router.isReady().then(() => {
