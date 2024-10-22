@@ -108,3 +108,24 @@ button:hover {
 .action-buttons .btn {
   margin: 0; /* Reset margin to ensure consistent spacing */
 }
+
+.container {
+  max-width: 800px;
+}
+
+h2 {
+  color: #333;
+  font-weight: bold;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}

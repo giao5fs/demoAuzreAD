@@ -1,0 +1,87 @@
+@model S3ViewModel
+
+@{
+    ViewBag.Title = "Files Management";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Files Management</h2>
+
+    <div class="card mb-4">
+        <div class="card-header">Upload a File</div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" asp-controller="FilesManagement" asp-action="Upload">
+                <div class="form-group">
+                    <label for="file">Choose file to upload:</label>
+                    <input type="file" class="form-control" id="file" name="file" />
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Available Files</div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var file in Model.Files)
+                    {
+                        <tr>
+                            <td>@file</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="@Url.Action("ViewFile", "FilesManagement", new { fileName = file })"
+                                        class="btn btn-info">View</a>
+                                    <form method="post" asp-controller="FilesManagement" asp-action="Download">
+                                        <input type="hidden" name="fileName" value="@file" />
+                                        <button type="submit" class="btn btn-success">Download</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "showDuration": "300",
+            "hideDuration": "500",
+            "timeOut": "2000",
+            "extendedTimeOut": "500",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            var errorMessage = '@TempData["ErrorMessage"]';
+            if (successMessage) {
+                toastr.success(successMessage);
+            }
+
+            if (errorMessage) {
+                toastr.warning(errorMessage);
+            }
+        });
+    </script>
+}

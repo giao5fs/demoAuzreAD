@@ -1,5 +1,7 @@
 using adminApp.Data;
 using adminApp.Models;
+using Amazon.Extensions.NETCore.Setup;
+using Amazon.S3;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +21,10 @@ builder.Services.AddResponseCompression(options =>
     options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
 });
 
+builder.Services.Configure<AWSOptions>(builder.Configuration.GetSection("AWS"));
+builder.Services.AddAWSService<IAmazonS3>();
+
+//-------------------------------------------
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
