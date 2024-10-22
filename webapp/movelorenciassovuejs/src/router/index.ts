@@ -45,7 +45,7 @@ router.beforeEach(async (to, from, next) => {
 
           window.history.replaceState({}, document.title, to.path);
 
-          next();
+          next("/");
         } catch (error) {
           console.error("Error exchanging code for tokens: ", error);
           next("/");

@@ -1,0 +1,72 @@
+@model IEnumerable<adminApp.Models.Timesheet>
+
+@{
+    ViewBag.Title = "Timesheet List";
+}
+
+<h2>Timesheet List</h2>
+
+<a href="@Url.Action("Create", "Timesheet")" class="btn btn-primary">Create New Timesheet</a>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Date</th>
+            <th>Hours Worked</th>
+            <th>Task Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var timesheet in Model)
+        {
+            <tr>
+                <td>@timesheet.EmployeeName</td>
+                <td>@timesheet.Date.ToShortDateString()</td>
+                <td>@timesheet.HoursWorked</td>
+                <td>@timesheet.TaskDescription</td>
+                <td>
+                    <div class="action-buttons">
+                        <a href="@Url.Action("Edit", "Timesheet", new { id = timesheet.TimesheetId })"
+                            class="btn btn-secondary">Edit</a>
+
+                        <form asp-action="Delete" asp-route-id="@timesheet.TimesheetId" method="post"
+                            style="display:inline;">
+                            <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Are you sure you want to delete this timesheet?');">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "showDuration": "300",
+            "hideDuration": "500",
+            "timeOut": "2000",
+            "extendedTimeOut": "500",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                toastr.success(successMessage); // Show success toast message
+            }
+        });
+    </script>
+}

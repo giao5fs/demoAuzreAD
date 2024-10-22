@@ -6,5 +6,4 @@
 import Navbar from "./Navbar.vue";
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

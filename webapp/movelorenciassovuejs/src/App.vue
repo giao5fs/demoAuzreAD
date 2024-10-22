@@ -5,7 +5,6 @@ import EmptyLayout from "./components/EmptyLayout.vue";
 import { computed, onMounted } from "vue";
 
 const route = useRoute();
-const isAuthenticated = computed(() => true);
 const layout = computed(() => route.meta.layout ?? EmptyLayout);
 </script>
 

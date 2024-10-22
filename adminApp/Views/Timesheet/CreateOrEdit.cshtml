@@ -1,0 +1,36 @@
+@model adminApp.Models.Timesheet
+
+<div class="form-container">
+    <h2>@(Model.TimesheetId == 0 ? "Create Timesheet" : "Edit Timesheet")</h2>
+
+    @using (Html.BeginForm(Model.TimesheetId == 0 ? "Create" : "Edit", "Timesheet", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.TimesheetId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeName)
+            @Html.TextBoxFor(model => model.EmployeeName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.EmployeeName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date)
+            @Html.TextBoxFor(model => model.Date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoursWorked)
+            @Html.TextBoxFor(model => model.HoursWorked, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.HoursWorked)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TaskDescription)
+            @Html.TextAreaFor(model => model.TaskDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TaskDescription)
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    }
+</div>
